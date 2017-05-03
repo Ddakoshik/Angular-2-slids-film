@@ -1,0 +1,17 @@
+<md-card class="example-card">
+  <md-card-header>
+    <md-card-title>{{ products[index].name }}</md-card-title>
+  </md-card-header>
+  <img md-card-image src="{{ products[index].url }}">
+  <md-card-content>
+    <p>
+    {{ products[index].description }}
+    </p>
+  </md-card-content>
+  <md-card-actions class="navigation">
+    <button md-button (click)="prev()" [disabled]="index===0" >Назад</button>
+    <button md-button (click)="dell()" >Сброс</button>
+    <p>{{click}}/ {{temp}}</p>
+    <button md-button (click)="next()" [disabled]="index===max">Вперед</button>
+  </md-card-actions>
+</md-card>

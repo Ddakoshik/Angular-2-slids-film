@@ -1,0 +1,33 @@
+<form class="example-form">
+  <md-input-container class="example-full-width">
+    <input mdInput placeholder="Название фильма" name="filmName" [(ngModel)]="filmName" (keyup.enter)="getFilms()">
+  </md-input-container>
+</form>
+{{filmName}}
+  
+  <br>
+<md-grid-list cols="3" rowHeight="1000px">
+
+
+
+  <md-grid-tile *ngFor="let film of filmList">
+
+    <md-card class="example-card" >
+  <img md-card-image src="{{film.Poster}}">
+  <md-card-content>
+    <md-card-title>{{film.Title}}</md-card-title>
+    <p>Год: {{film.Year}}</p>
+    <p>
+      The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+      A small, agile dog that copes very well with mountainous terrain.
+    </p>
+  </md-card-content>
+  <md-card-actions>
+    <button md-button>Подробнее</button>
+  </md-card-actions>
+</md-card>
+
+  </md-grid-tile>
+  
+</md-grid-list>
+
