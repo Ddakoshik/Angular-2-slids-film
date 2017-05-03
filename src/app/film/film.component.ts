@@ -18,6 +18,7 @@ export class FilmComponent implements OnInit {
     
   }
   private getFilms(){
+    if(!this.filmName) {return;}
     this.FilmService.getFilms(this.filmName).subscribe(data =>{
       this.filmList = data;
     })
