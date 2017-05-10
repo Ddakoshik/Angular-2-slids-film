@@ -1,3 +1,38 @@
-<p>
-  homwork-5 works!
-</p>
+
+<!--<md-toolbar color="primary">
+  <div class="example-button-row">
+      <a md-button routerLink=".">Flat button</a>
+      
+      <button md-button>Подробнее</button>
+  </div>
+</md-toolbar>-->
+
+<md-toolbar color="primary">
+  <span>Custom Toolbar</span>
+</md-toolbar>
+
+
+
+<md-toolbar>
+  <button  class="toolbar-button" md-mini-fab><md-icon>menu</md-icon></button>
+  <div class="toolbar-button-row">
+    <a md-button>
+      <md-icon></md-icon> 
+    </a>
+  </div>
+  <span>Список важных задач</span>
+</md-toolbar>
+
+<md-sidenav-container>
+  <md-sidenav #sidenav mode="over" class="app-sidenav">
+    <nav>
+      <a md-button class="nav-link">
+        <md-icon></md-icon> 
+      </a>
+    </nav>
+  </md-sidenav>
+
+  <div class="app-content">
+    
+  </div>
+</md-sidenav-container>
