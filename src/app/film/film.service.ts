@@ -4,19 +4,35 @@ import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class FilmService {
-  url: string = "http://www.omdbapi.com/?page=1&s="
-  constructor(private http: Http) { }
+  searchUrl: string = "http://www.omdbapi.com/?page=1&s=";
+  filmUrl: string = "http://www.omdbapi.com/?i=";
 
-  private extractData(res: Response){
+   constructor(private http: Http) { }
+
+  private extractListData(res: Response) {
     let body = res.json();
-    return body.Search || {}
+    return body.Search || {};
   }
-    
 
-  getFilms(filmName: string) {
-    return this.http.get(this.url + filmName).map(this.extractData);
-
+  private extractItemData(res: Response) {
+    let body = res.json();
+    return body || {};
   }
+
+  getFilms (filmName: string) {
+    return this.http.get(this.searchUrl + filmName+"&apikey=520bbe17").map(this.extractListData);
+  }
+
+  getFilmById (filmId: string) {
+    return this.http.get(this.filmUrl + filmId+"&apikey=520bbe17").map(this.extractItemData);
+  }
+
 }
 
+  
 
+
+
+
+  
+ 
