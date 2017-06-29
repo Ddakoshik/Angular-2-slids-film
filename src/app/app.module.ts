@@ -11,6 +11,7 @@ import { SlidComponent } from './slid/slid.component';
 import { FilmComponent } from './film/film.component';
 import { FilmService } from './film/film.service';
 import { Homwork5Component } from './homwork-5/homwork-5.component';
+import { TimeHomworkComponent } from './time-homwork/time-homwork.component';
  
  
 @NgModule({
@@ -18,7 +19,8 @@ import { Homwork5Component } from './homwork-5/homwork-5.component';
     AppComponent,
     SlidComponent,
     FilmComponent,
-    Homwork5Component
+    Homwork5Component,
+    TimeHomworkComponent
   ],
   imports: [
     MaterialModule,
