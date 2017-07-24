@@ -1,0 +1,15 @@
+<md-card class="film-card" >
+  <img md-card-image src="{{filmItem.Poster}}">
+  <md-card-content>
+    <md-card-title>{{filmItem.Title}}</md-card-title>
+    <p>Производство: {{filmItem.Production}}</p>
+    <p>Год: {{filmItem.Year}}</p>
+     <p>Страна: {{filmItem.Country}}</p>
+    <p>Релиз: {{filmItem.Released}}</p>
+    <p> {{filmItem.Plot}}</p> 
+    <p>Айди фильма: {{filmItem.imdbID}}</p>
+  </md-card-content>
+  <md-card-actions>
+    <button md-button>Подробнее</button>
+  </md-card-actions>
+</md-card>

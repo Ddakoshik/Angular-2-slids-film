@@ -1,0 +1,26 @@
+<div class="search-component">
+<div class="example-container">
+  
+  <div class="button-row">
+    <form class="example-form">
+    <md-input-container class="example-full-width">
+      <input mdInput placeholder="Найти фильм" name="filmNameSearch"  [(ngModel)]="filmNameSearch" (keyup.enter)="getNewFilms()">
+    </md-input-container>
+
+    </form>
+    
+    <button md-raised-button>Поиск</button>
+  </div>
+
+  <div class="button-row">
+    <form class="example-form">
+      <md-input-container class="example-full-width">
+        <input mdInput placeholder="Название фильма" name="filmName" [(ngModel)]="filmName" (keyup.enter)="getFilms()"> 
+      </md-input-container>
+    </form>
+  </div>
+  1 {{filmNameSearch}} <br>
+  2 {{filmName}} 
+
+  </div>
+</div>

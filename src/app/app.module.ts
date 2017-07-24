@@ -12,6 +12,8 @@ import { FilmComponent } from './film/film.component';
 import { FilmService } from './film/film.service';
 import { Homwork5Component } from './homwork-5/homwork-5.component';
 import { TimeHomworkComponent } from './time-homwork/time-homwork.component';
+import { FilmSearchComponent } from './film-search/film-search.component';
+import { FilmCardComponent } from './film-card/film-card.component';
  
  
 @NgModule({
@@ -20,7 +22,9 @@ import { TimeHomworkComponent } from './time-homwork/time-homwork.component';
     SlidComponent,
     FilmComponent,
     Homwork5Component,
-    TimeHomworkComponent
+    TimeHomworkComponent,
+    FilmSearchComponent,
+    FilmCardComponent
   ],
   imports: [
     MaterialModule,

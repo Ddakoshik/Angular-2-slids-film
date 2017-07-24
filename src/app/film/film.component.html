@@ -8,25 +8,24 @@
   <br>
 <md-grid-list cols="2" rowHeight="1000px">
 
-
-
+  <div *ngIf="filmList.lenght === 0"><h2>Фильмы не найдены</h2></div>
   <md-grid-tile *ngFor="let film of filmList">
-
-    <md-card class="example-card" >
-  <img md-card-image src="{{film.Poster}}">
-  <md-card-content>
-    <md-card-title>{{film.Title}}</md-card-title>
-    <p>Год: {{film.Year}}</p>
-    <p>
-      The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-      A small, agile dog that copes very well with mountainous terrain.
-    </p>
-  </md-card-content>
-  <md-card-actions>
-    <button md-button>Подробнее</button>
-  </md-card-actions>
-</md-card>
-
+    <app-film-card [filmId] = "film.imdbID"></app-film-card>
+    <!-- <md-card class="example-card" >
+      <img md-card-image src="{{film.Poster}}">
+      <md-card-content>
+        <md-card-title>{{film.Title}}</md-card-title>
+        <p>Производство: {{film.Production}}</p>
+        <p>Год: {{film.Year}}</p>
+        <p>Страна: {{film.Country}}</p>
+        <p>Релиз: {{film.Released}}</p>
+        <p> {{film.Plot}}</p>
+        <p>Айди фильма: {{film.imdbID}}</p>
+      </md-card-content>
+      <md-card-actions>
+        <button md-button>Подробнее</button>
+      </md-card-actions>
+    </md-card> -->
   </md-grid-tile>
   
 </md-grid-list>

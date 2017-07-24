@@ -1,0 +1,21 @@
+.example-form {
+  width: 500px;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+.example-container {
+  width: 700px;
+}
+
+.button-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.search-component{
+    background-color: #ebeef4;
+    width: 100%; 
+}

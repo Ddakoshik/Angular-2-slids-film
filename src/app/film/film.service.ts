@@ -6,6 +6,7 @@ import { Observable } from 'rxjs/Observable';
 export class FilmService {
   searchUrl: string = "http://www.omdbapi.com/?page=1&s=";
   filmUrl: string = "http://www.omdbapi.com/?i=";
+  apiKay: string = "&apikey=520bbe17";
 
    constructor(private http: Http) { }
 
@@ -20,11 +21,11 @@ export class FilmService {
   }
 
   getFilms (filmName: string) {
-    return this.http.get(this.searchUrl + filmName+"&apikey=520bbe17").map(this.extractListData);
+    return this.http.get(this.searchUrl + filmName + this.apiKay).map(this.extractListData);
   }
 
   getFilmById (filmId: string) {
-    return this.http.get(this.filmUrl + filmId+"&apikey=520bbe17").map(this.extractItemData);
+    return this.http.get(this.filmUrl + filmId + this.apiKay).map(this.extractItemData);
   }
 
 }
