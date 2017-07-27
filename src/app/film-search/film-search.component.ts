@@ -5,19 +5,31 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
   templateUrl: './film-search.component.html',
   styleUrls: ['./film-search.component.css']
 })
-export class FilmSearchComponent implements OnInit {
-  filmNameSearch: string;
+export class FilmSearchComponent implements OnInit  {
+  filmNameSearch: string = '';
   
+   foods = [
+    {value: 'steak-0', viewValue: 'Детально'},
+    {value: 'pizza-1', viewValue: 'Компактно'}
+  ];
+
+  ngOnInit() {
+    this.filmNameSearch = "Matrix";
+    this.getNewFilms(this.filmNameSearch);
+  }
+
+  
+
+
   @Output()
-  getFilms = new EventEmitter<string> ();
+  getFilmsEvent = new EventEmitter <string> ();
 
 
   constructor() { }
-  ngOnInit() {
-  }
+
   
   getNewFilms (filmNameSearch:string): void {
-    this.getFilms.emit(filmNameSearch);
+    this.getFilmsEvent.emit(this.filmNameSearch);
   }
  
 }

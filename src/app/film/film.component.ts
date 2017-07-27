@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FilmService } from './film.service'
 
 @Component({
@@ -6,16 +6,19 @@ import { FilmService } from './film.service'
   templateUrl: './film.component.html',
   styleUrls: ['./film.component.css']
 })
-export class FilmComponent implements OnInit {
+export class FilmComponent  {
   filmList : Object[] = []
   filmName: string;
   constructor(private filmService: FilmService) { }
+  
 
-  ngOnInit() {
-    this.filmName = "Matrix";
-    this.getFilms();
-  }
-
+  @Input()
+  filmNameSearch: string = "11";
+  
+buildGaleryBySearch(filmNameSearch: string){
+  this.filmName = filmNameSearch;
+  this.getFilms();
+}
   private getFilms(){
     if (!this.filmName) {return; }
     this.filmService.getFilms(this.filmName).subscribe(data =>{

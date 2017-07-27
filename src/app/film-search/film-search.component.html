@@ -1,26 +1,27 @@
 <div class="search-component">
-<div class="example-container">
+<!-- <div class="container" layout="row"> -->
   
-  <div class="button-row">
-    <form class="example-form">
-    <md-input-container class="example-full-width">
+   <div class="button-row"> 
+    <form class="form">
+    <md-input-container >
       <input mdInput placeholder="Найти фильм" name="filmNameSearch"  [(ngModel)]="filmNameSearch" (keyup.enter)="getNewFilms()">
     </md-input-container>
 
     </form>
     
-    <button md-raised-button>Поиск</button>
-  </div>
+    <button md-raised-button (click) = "getNewFilms()">Поиск</button>
+    
+    <md-select placeholder="Вид отображения">
+      <md-option *ngFor="let food of foods" [value]="food.value">
+        {{ food.viewValue }}
+      </md-option>
+   </md-select>
+   </div> 
 
-  <div class="button-row">
-    <form class="example-form">
-      <md-input-container class="example-full-width">
-        <input mdInput placeholder="Название фильма" name="filmName" [(ngModel)]="filmName" (keyup.enter)="getFilms()"> 
-      </md-input-container>
-    </form>
-  </div>
-  1 {{filmNameSearch}} <br>
-  2 {{filmName}} 
+  
 
-  </div>
+  <!-- 1 {{filmNameSearch}} <br> -->
+   
+<!-- 
+  </div> -->
 </div>

@@ -1,12 +1,18 @@
-<form class="example-form">
+<app-film-search (getFilmsEvent) = "buildGaleryBySearch($event)" ></app-film-search>
+
+
+
+
+<!-- <form class="example-form">
   <md-input-container class="example-full-width">
     <input mdInput placeholder="Название фильма" name="filmName" [(ngModel)]="filmName" (keyup.enter)="getFilms()">
   </md-input-container>
 </form>
-{{filmName}}
+ {{filmName}}  -->
+
   
   <br>
-<md-grid-list cols="2" rowHeight="1000px">
+<md-grid-list cols="3" rowHeight="1000px">
 
   <div *ngIf="filmList.lenght === 0"><h2>Фильмы не найдены</h2></div>
   <md-grid-tile *ngFor="let film of filmList">
