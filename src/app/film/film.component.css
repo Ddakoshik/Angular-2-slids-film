@@ -11,3 +11,8 @@
 .example-form{
     margin-bottom: 50px;
 }
+
+.addFilmClass{
+  display: flex;
+  justify-content: center;
+}

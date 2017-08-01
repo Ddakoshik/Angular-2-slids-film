@@ -4,9 +4,10 @@ import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class FilmService {
-  searchUrl: string = "http://www.omdbapi.com/?page=1&s=";
+  searchUrl: string = "http://www.omdbapi.com/?page=";
   filmUrl: string = "http://www.omdbapi.com/?i=";
   apiKay: string = "&apikey=520bbe17";
+  pageUrl: number = 1;
 
    constructor(private http: Http) { }
 
@@ -21,11 +22,15 @@ export class FilmService {
   }
 
   getFilms (filmName: string) {
-    return this.http.get(this.searchUrl + filmName + this.apiKay).map(this.extractListData);
+    return this.http.get(this.searchUrl + this.pageUrl + '&s=' + filmName + this.apiKay).map(this.extractListData);
   }
 
   getFilmById (filmId: string) {
     return this.http.get(this.filmUrl + filmId + this.apiKay).map(this.extractItemData);
+  }
+
+  addFilmsServis(filmName: string, pageUrl: number){
+    return this.http.get(this.searchUrl + pageUrl + '&s=' + filmName + this.apiKay).map(this.extractListData);
   }
 
 }

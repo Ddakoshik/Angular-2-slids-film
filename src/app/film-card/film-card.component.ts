@@ -11,6 +11,10 @@ export class FilmCardComponent implements OnInit {
   @Input()
   filmId: string;
   filmItem:{} = {};
+  
+  @Input()
+  visualTypeOfCard: number;
+
   constructor(private filmService: FilmService) { }
 
   ngOnInit() {

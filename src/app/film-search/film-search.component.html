@@ -11,11 +11,13 @@
     
     <button md-raised-button (click) = "getNewFilms()">Поиск</button>
     
-    <md-select placeholder="Вид отображения">
-      <md-option *ngFor="let food of foods" [value]="food.value">
-        {{ food.viewValue }}
-      </md-option>
-   </md-select>
+      <md-select class="card-select" placeholder="Вид отображения" [(ngModel)]= "visualTypeOfCard" name= "visualTypeOfCard" (change)="selectNewView()" >
+      <md-option [value] = "1">Детально</md-option>
+      <md-option [value] = "2">Компактно</md-option>
+       <!-- <md-option *ngFor="let visualTypeOfCard of visualTypeOfCards" [value]="visualTypeOfCard.value">
+        {{ viewTypeOfCard.viewValue }}
+      </md-option>  -->
+   </md-select>  
    </div> 
 
   

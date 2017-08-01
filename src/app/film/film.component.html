@@ -1,7 +1,4 @@
-<app-film-search (getFilmsEvent) = "buildGaleryBySearch($event)" ></app-film-search>
-
-
-
+<app-film-search (getFilmsEvent) = "buildGaleryBySearch($event)" (selectViewEvent) = "selectCard($event)"></app-film-search>
 
 <!-- <form class="example-form">
   <md-input-container class="example-full-width">
@@ -12,27 +9,14 @@
 
   
   <br>
-<md-grid-list cols="3" rowHeight="1000px">
+<md-grid-list cols="3" [rowHeight]="rowHeightCange">
 
   <div *ngIf="filmList.lenght === 0"><h2>Фильмы не найдены</h2></div>
   <md-grid-tile *ngFor="let film of filmList">
-    <app-film-card [filmId] = "film.imdbID"></app-film-card>
-    <!-- <md-card class="example-card" >
-      <img md-card-image src="{{film.Poster}}">
-      <md-card-content>
-        <md-card-title>{{film.Title}}</md-card-title>
-        <p>Производство: {{film.Production}}</p>
-        <p>Год: {{film.Year}}</p>
-        <p>Страна: {{film.Country}}</p>
-        <p>Релиз: {{film.Released}}</p>
-        <p> {{film.Plot}}</p>
-        <p>Айди фильма: {{film.imdbID}}</p>
-      </md-card-content>
-      <md-card-actions>
-        <button md-button>Подробнее</button>
-      </md-card-actions>
-    </md-card> -->
+    <app-film-card [filmId] = "film.imdbID" [visualTypeOfCard]="typeOfCard"></app-film-card>
   </md-grid-tile>
   
 </md-grid-list>
 
+
+<button md-raised-button class="addFilmClass" (click) = "addFilms()">Больше фильмов</button>

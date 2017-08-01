@@ -6,23 +6,28 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./film-search.component.css']
 })
 export class FilmSearchComponent implements OnInit  {
-  filmNameSearch: string = '';
+  filmNameSearch: string ;
+  visualTypeOfCard: string = "1" ;
   
-   foods = [
-    {value: 'steak-0', viewValue: 'Детально'},
-    {value: 'pizza-1', viewValue: 'Компактно'}
-  ];
+  //  viewTypeOfCard = [
+  //   {value: '1', viewValue: 'Детально'},
+  //   {value: '2', viewValue: 'Компактно'}
+  // ];
 
   ngOnInit() {
     this.filmNameSearch = "Matrix";
     this.getNewFilms(this.filmNameSearch);
+    this. visualTypeOfCard = "1";
+    this.selectNewView(this.visualTypeOfCard);
+
   }
 
   
-
+  @Output()
+  getFilmsEvent = new EventEmitter ();
 
   @Output()
-  getFilmsEvent = new EventEmitter <string> ();
+  selectViewEvent = new EventEmitter ();
 
 
   constructor() { }
@@ -30,6 +35,11 @@ export class FilmSearchComponent implements OnInit  {
   
   getNewFilms (filmNameSearch:string): void {
     this.getFilmsEvent.emit(this.filmNameSearch);
+  }
+
+  selectNewView(visualTypeOfCard:string): void {
+    this.selectViewEvent.emit(this.visualTypeOfCard);
+    console.log(this.visualTypeOfCard);
   }
  
 }
