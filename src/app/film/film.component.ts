@@ -29,11 +29,11 @@ selectCard(visualTypeOfCard :string) : void{
 }
 
 addFilms(){
+  // this.loading = true;
   this.pageUrl++
-  this.getFilms(this.pageUrl);
   console.log(this.pageUrl)
-  this.filmService.addFilmsServis(this.filmName, this.pageUrl).subscribe(data =>{
-      this.filmList = this.filmList.concat(data);
+  this.filmService.addFilmsServis(this.filmName, this.pageUrl).subscribe(
+    data =>{ this.filmList = this.filmList.concat(data);
     })
 }
 

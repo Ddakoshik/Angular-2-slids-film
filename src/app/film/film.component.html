@@ -11,7 +11,7 @@
   <br>
 <md-grid-list cols="2" [rowHeight]="rowHeightCange">
 
-  <div *ngIf="filmList.lenght === 0"><h2>Фильмы не найдены</h2></div>
+  
   <md-grid-tile *ngFor="let film of filmList">
     <app-film-card [filmId] = "film.imdbID" [visualTypeOfCard]="typeOfCard"></app-film-card>
   </md-grid-tile>
@@ -19,4 +19,6 @@
 </md-grid-list>
 
 
-<button md-raised-button class="addFilmClass" (click) = "addFilms()">Больше фильмов</button>
+<button md-raised-button *ngIf="filmList[0] && !loading" class="addFilmClass" (click) = "addFilms()">Больше фильмов</button>
+<div *ngIf="!filmList[0]"><h2>Фильмы не найдены</h2></div>
+<img src="assets/img/loading.gif" alt="Подгрузка...." class="loading" *ngIf="loading">
