@@ -1,21 +1,37 @@
-.example-form {
-  width: 500px;
-}
 
-.example-full-width {
-  width: 100%;
-}
-
-.example-container {
-  width: 700px;
-}
 
 .button-row {
   display: flex;
   align-items: center;
-   justify-content: center; 
+   justify-content: flex-start; 
 }
 .search-component{
     background-color: #ebeef4;
-    width: 100%; 
+    width: 100%;
+    display: flex;
+    align-items: center; 
+    justify-content: center; 
+    
+}
+
+
+.search-element {
+  width: 620px;
+  margin-left:50px;
+}
+
+.navigation {
+ display: flex;
+ justify-content: space-between;
+ 
+}
+.example-form{
+    margin-bottom: 50px;
+}
+
+.card-select{
+  display: flex;
+  justify-content: flex-end;
+  /* margin-left: auto;
+  margin-right: 0 em; */
 }

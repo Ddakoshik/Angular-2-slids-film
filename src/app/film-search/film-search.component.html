@@ -1,24 +1,26 @@
 <div class="search-component">
 <!-- <div class="container" layout="row"> -->
   
-   <div class="button-row"> 
-    <form class="form">
-    <md-input-container >
-      <input mdInput placeholder="Найти фильм" name="filmNameSearch"  [(ngModel)]="filmNameSearch" (keyup.enter)="getNewFilms()">
-    </md-input-container>
-
-    </form>
-    
-    <button md-raised-button (click) = "getNewFilms()">Поиск</button>
-    
+    <div class="search-element"> 
+      <div class="button-row">
+      <form class="form">
+        <md-input-container >
+          <input mdInput placeholder="Найти фильм" name="filmNameSearch"  [(ngModel)]="filmNameSearch" (keyup.enter)="getNewFilms()">
+        </md-input-container>
+      </form>
+      <button md-raised-button (click) = "getNewFilms()">Поиск</button>
+      </div>
+    </div>
+    <div class="search-element">
       <md-select class="card-select" placeholder="Вид отображения" [(ngModel)]= "visualTypeOfCard" name= "visualTypeOfCard" (change)="selectNewView()" >
-      <md-option [value] = "1">Детально</md-option>
-      <md-option [value] = "2">Компактно</md-option>
+      <md-option [value] = "'1'">Детально</md-option>
+      <md-option [value] = "'2'">Компактно</md-option>
        <!-- <md-option *ngFor="let visualTypeOfCard of visualTypeOfCards" [value]="visualTypeOfCard.value">
         {{ viewTypeOfCard.viewValue }}
       </md-option>  -->
    </md-select>  
    </div> 
+
 
   
 
