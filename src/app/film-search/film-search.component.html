@@ -7,6 +7,27 @@
         <md-input-container >
           <input mdInput placeholder="Найти фильм" name="filmNameSearch"  [(ngModel)]="filmNameSearch" (keyup.enter)="getNewFilms()">
         </md-input-container>
+        <!-- Автокомплит -->
+        <md-input-container>
+          <input mdInput placeholder="State" [mdAutocomplete]="auto" [formControl]="stateCtrl">
+        </md-input-container>
+        
+        <md-autocomplete #auto="mdAutocomplete">
+          <md-option *ngFor="let state of filteredStates | async" [value]="state">
+            {{ state }}
+          </md-option>
+        </md-autocomplete>
+        
+        <form [formGroup]="heroForm" novalidate>
+          <div class="form-group">
+            <label class="center-block">Name:
+              <input class="form-control" formControlName="name">
+            </label>
+          </div>
+        </form>
+        <p>Form value: {{ heroForm.value | json }}</p>
+
+
       </form>
       <button md-raised-button (click) = "getNewFilms()">Поиск</button>
       </div>

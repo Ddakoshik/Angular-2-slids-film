@@ -1,5 +1,4 @@
 <app-film-search (getFilmsEvent) = "buildGaleryBySearch($event)" (selectViewEvent) = "selectCard($event)"></app-film-search>
-
 <!-- <form class="example-form">
   <md-input-container class="example-full-width">
     <input mdInput placeholder="Название фильма" name="filmName" [(ngModel)]="filmName" (keyup.enter)="getFilms()">
@@ -21,4 +20,6 @@
 
 <button md-raised-button *ngIf="filmList[0] && !loading" class="addFilmClass" (click) = "addFilms()">Больше фильмов</button>
 <div *ngIf="!filmList[0]"><h2>Фильмы не найдены</h2></div>
-<img src="assets/img/loading.gif" alt="Подгрузка...." class="loading" *ngIf="loading">
+<img *ngIf="loading" id="loading" src="assets/img/loading.gif" alt="Подгрузка...." class="loading"  >
+<a href="#yakor"> <button md-raised-button >Наверх</button> </a> 
+ <!--  -->

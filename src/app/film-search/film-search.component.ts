@@ -1,5 +1,10 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 
+import {FormControl, FormGroup} from '@angular/forms';
+
+import 'rxjs/add/operator/startWith';
+import 'rxjs/add/operator/map';
+
 @Component({
   selector: 'app-film-search',
   templateUrl: './film-search.component.html',
@@ -9,10 +14,45 @@ export class FilmSearchComponent implements OnInit  {
   filmNameSearch: string ;
   visualTypeOfCard: string = "1" ;
   
-  //  viewTypeOfCard = [
-  //   {value: '1', viewValue: 'Детально'},
-  //   {value: '2', viewValue: 'Компактно'}
-  // ];
+  // Автоинвайт начало 
+  stateCtrl: FormControl;
+  filteredStates: any;
+
+  heroForm = new FormGroup ({
+    name: new FormControl()
+  });
+
+  states = [
+    'Alabama',
+    'Alaska',
+    'Arizona',
+    'Arkansas',
+    'California',
+    'Colorado',
+    'Connecticut',
+    'Delaware',
+    'Florida',
+    'Georgia',
+    'Hawaii',
+    'Idaho',
+    
+  ];
+
+  constructor() {
+    this.stateCtrl = new FormControl();
+    this.filteredStates = this.stateCtrl.valueChanges
+        .startWith(null)
+        .map(name => this.filterStates(name));
+  }
+
+  filterStates(val: string) {
+    return val ? this.states.filter(s => s.toLowerCase().indexOf(val.toLowerCase()) === 0)
+               : this.states;
+  }
+    // конец автоинвайта
+
+
+  
 
   ngOnInit() {
     this.filmNameSearch = "Matrix";
@@ -30,7 +70,6 @@ export class FilmSearchComponent implements OnInit  {
   selectViewEvent = new EventEmitter ();
 
 
-  constructor() { }
 
   
   getNewFilms (filmNameSearch:string): void {

@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -14,8 +14,8 @@ import { Homwork5Component } from './homwork-5/homwork-5.component';
 import { TimeHomworkComponent } from './time-homwork/time-homwork.component';
 import { FilmSearchComponent } from './film-search/film-search.component';
 import { FilmCardComponent } from './film-card/film-card.component';
- 
- 
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,6 +31,7 @@ import { FilmCardComponent } from './film-card/film-card.component';
     BrowserAnimationsModule,
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpModule
   ],
   providers: [FilmService],

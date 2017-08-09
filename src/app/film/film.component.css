@@ -9,3 +9,9 @@
   display: flex;
   justify-content: center;
 }
+
+#loading{
+  position: fixed;
+  left: calc(50% - 60px);
+  top:40%;
+}

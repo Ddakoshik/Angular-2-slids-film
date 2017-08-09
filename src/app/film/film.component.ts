@@ -12,6 +12,7 @@ export class FilmComponent  {
   rowHeightCange: string = "1000px";
   typeOfCard: string;
   pageUrl: number = 1;
+  loading: boolean;
 
   constructor(private filmService: FilmService) { }
 
@@ -29,12 +30,13 @@ selectCard(visualTypeOfCard :string) : void{
 }
 
 addFilms(){
-  // this.loading = true;
+  this.loading = true;
   this.pageUrl++
   console.log(this.pageUrl)
   this.filmService.addFilmsServis(this.filmName, this.pageUrl).subscribe(
-    data =>{ this.filmList = this.filmList.concat(data);
-    })
+    data =>{ this.filmList = this.filmList.concat(data);},
+  err => { console.log(err); },
+  () => {this.loading = false;}) 
 }
 
 
