@@ -13,6 +13,8 @@ export class FilmComponent  {
   typeOfCard: string;
   pageUrl: number = 1;
   loading: boolean;
+  scrollme: any;
+  yScrol: number;
 
   constructor(private filmService: FilmService) { }
 
@@ -49,6 +51,33 @@ setRowHeight (filmNameSearch: string): void {
       this.filmList = data;
     })
   }
+
+  // прокрутка вверх страницы
+   runScroll() {
+     this.yScrol = window.pageYOffset || document.documentElement.scrollTop;
+    // if (!this.yScrol)
+    do {
+      setTimeout(function() {
+        this.yScrol = this.yScrol - 100;
+        }, 1000);
+        console.log(this.yScrol);
+        window.scrollTo(this.yScrol,0);
+
+  
+} while (this.yScrol = 0);
+    
+
+  // window.scrollTo(this.yScrol,0);
+     
+  console.log("Vverx");
+
+// window.onscroll = function() {
+//   var scrolled = window.pageYOffset || document.documentElement.scrollTop;
+//   document.getElementById('showScroll').innerHTML = scrolled + 'px';
+// }
+
+}
+ 
 
   
 

@@ -33,6 +33,10 @@ export class FilmService {
     return this.http.get(this.searchUrl + pageUrl + '&s=' + filmName + this.apiKay).map(this.extractListData);
   }
 
+  autocomplitFilm(filmNameSearch: string){
+     return this.http.get(this.searchUrl + this.pageUrl + '&s=' + filmNameSearch + this.apiKay).map(this.extractListData);
+  }
+
 }
 
   

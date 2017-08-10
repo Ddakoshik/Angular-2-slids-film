@@ -5,12 +5,9 @@
       <div class="button-row">
       <form class="form">
         <md-input-container >
-          <input mdInput placeholder="Найти фильм" name="filmNameSearch"  [(ngModel)]="filmNameSearch" (keyup.enter)="getNewFilms()">
+          <input mdInput placeholder="Найти фильм" name="filmNameSearch"  [(ngModel)]="filmNameSearch" (keyup.enter)="getNewFilms()" (keyup)="autocomplitFilms()" [mdAutocomplete]="auto" [formControl]="stateCtrl">
         </md-input-container>
         <!-- Автокомплит -->
-        <md-input-container>
-          <input mdInput placeholder="State" [mdAutocomplete]="auto" [formControl]="stateCtrl">
-        </md-input-container>
         
         <md-autocomplete #auto="mdAutocomplete">
           <md-option *ngFor="let state of filteredStates | async" [value]="state">
@@ -23,8 +20,17 @@
             <label class="center-block">Name:
               <input class="form-control" formControlName="name">
             </label>
+            <md-input-container>
+               <input mdInput placeholder="State" [mdAutocomplete]="auto" [formControl]="stateCtrl" > 
+            </md-input-container>
+            <md-autocomplete #auto="mdAutocomplete">
+            <md-option *ngFor="let state of filteredStates | async" [value]="state">
+                {{ state }} 
+              </md-option>
+            </md-autocomplete>
           </div>
         </form>
+        <p>Test: {{stateCtrl.valueChanges}}</p>
         <p>Form value: {{ heroForm.value | json }}</p>
 
 

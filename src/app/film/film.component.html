@@ -18,8 +18,11 @@
 </md-grid-list>
 
 
-<button md-raised-button *ngIf="filmList[0] && !loading" class="addFilmClass" (click) = "addFilms()">Больше фильмов</button>
 <div *ngIf="!filmList[0]"><h2>Фильмы не найдены</h2></div>
 <img *ngIf="loading" id="loading" src="assets/img/loading.gif" alt="Подгрузка...." class="loading"  >
-<a href="#yakor"> <button md-raised-button >Наверх</button> </a> 
- <!--  -->
+<div class="button-row">
+  <button md-raised-button *ngIf="filmList[0] && !loading" class="addFilmClass" (click) = "addFilms()">Больше фильмов</button>
+  <button md-raised-button (click)="runScroll()" >Наверх</button> 
+</div>
+<br>
+<br>

@@ -1,6 +1,7 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 
-import {FormControl, FormGroup} from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
+import { FilmService } from '../film/film.service'
 
 import 'rxjs/add/operator/startWith';
 import 'rxjs/add/operator/map';
@@ -18,9 +19,6 @@ export class FilmSearchComponent implements OnInit  {
   stateCtrl: FormControl;
   filteredStates: any;
 
-  heroForm = new FormGroup ({
-    name: new FormControl()
-  });
 
   states = [
     'Alabama',
@@ -35,10 +33,14 @@ export class FilmSearchComponent implements OnInit  {
     'Georgia',
     'Hawaii',
     'Idaho',
-    
+   
   ];
 
-  constructor() {
+  heroForm = new FormGroup ({
+    name: new FormControl()
+  });
+
+  constructor(private filmService: FilmService) {
     this.stateCtrl = new FormControl();
     this.filteredStates = this.stateCtrl.valueChanges
         .startWith(null)
@@ -48,6 +50,21 @@ export class FilmSearchComponent implements OnInit  {
   filterStates(val: string) {
     return val ? this.states.filter(s => s.toLowerCase().indexOf(val.toLowerCase()) === 0)
                : this.states;
+  }
+
+  autocomplitFilms(filmNameSearch:string){
+       setTimeout(this.timeFanck(filmNameSearch), 5000); 
+    }
+  
+
+  timeFanck(filmNameSearch:string){
+     console.log("ok");
+     console.log(this.filmNameSearch);
+     this.filmService.getFilms(this.filmNameSearch).subscribe(
+       data =>{this.states = this.states.concat(data.map(film => film.Title));
+      //  data =>{ this.filmList = this.filmList.concat(data);},
+       
+    })
   }
     // конец автоинвайта
 

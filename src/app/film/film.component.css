@@ -15,3 +15,8 @@
   left: calc(50% - 60px);
   top:40%;
 }
+
+.button-row{
+  display: flex;
+  justify-content: space-around;
+}
